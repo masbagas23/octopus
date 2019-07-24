@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
   "github.com/gin-gonic/gin"
-  "github.com/masbagas23/octopus-controller"
+  "github.com/masbagas23/octopus"
 )
 
 func router() *gin.Engine {
@@ -13,10 +13,7 @@ func router() *gin.Engine {
 
   user := router.Group("/user")
 	{
-    user.GET("/get", GetUser)
-  	user.POST("/register", RegistUser)
-  	user.PUT("/edit", EditUser)
-  	user.DELETE("/delete", DelUser)
+    user.GET("/get", UserController.GetUser)
 	}
   return router
 }
